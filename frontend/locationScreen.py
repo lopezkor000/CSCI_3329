@@ -1,5 +1,4 @@
 from kivy.uix.screenmanager import Screen
 
-
-class SelectionScreen(Screen):
+class LocationScreen(Screen):
     pass

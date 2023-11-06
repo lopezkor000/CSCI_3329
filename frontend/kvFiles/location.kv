@@ -1,0 +1,17 @@
+#:kivy 2.2.1
+
+<LocationScreen>:
+	BoxLayout:
+		orientation: 'vertical'
+		Button:
+			size_hint: 0.15, 0.10 * 4
+			text: 'back'
+			on_press:
+				root.manager.transition.direction = 'right'
+				root.manager.current = 'Menu'
+		Button:
+			text: 'view'
+		Button:
+			text: 'edit'
+		Button:
+			text: 'categories'
