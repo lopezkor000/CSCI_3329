@@ -6,7 +6,6 @@ from kivy.app import App
 
 
 class BoxLayoutEx(Screen):
-    num = 0
     # def __init__(self, **kwargs):
     #     super().__init__(**kwargs)
     #     self.orientation = 'vertical'
