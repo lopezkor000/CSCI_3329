@@ -2,14 +2,14 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
 
-from selection import SelectionScreen
-Builder.load_file('./kvFiles/selection.kv')
+from frontend.selection import SelectionScreen
+Builder.load_file('frontend/kvFiles/selection.kv')
 
-from mainMenu import MainMenu
-Builder.load_file('./kvFiles/mainMenu.kv')
+from frontend.mainMenu import MainMenu
+Builder.load_file('frontend/kvFiles/mainMenu.kv')
 
-from locationScreen import LocationScreen
-Builder.load_file('./kvFiles/location.kv')
+from frontend.locationScreen import LocationScreen
+Builder.load_file('frontend/kvFiles/location.kv')
 
 
 class Main(App):
