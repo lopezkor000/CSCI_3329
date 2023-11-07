@@ -1,14 +1,5 @@
-from kivy.app import App
-from kivy.uix.widget import Widget
+from kivy.uix.screenmanager import Screen
 
 
-class SelectionScreen(Widget):
+class SelectionScreen(Screen):
     pass
-
-
-class Selection(App):
-    def build(self):
-        select = SelectionScreen()
-        return select
-
-Selection().run()
