@@ -1,4 +1,4 @@
-#!C:\Users\Koriel Lopez\VS_Projects\project_code\CSCI_3329\.venv\Scripts\python.exe
+#!C:\Users\Koriel Lopez\Projects\VS_Projects\project_code\CSCI_3329\.venv\Scripts\python.exe
 # :Copyright: © 2015 Günter Milde.
 # :License: Released under the terms of the `2-Clause BSD license`_, in short:
 #

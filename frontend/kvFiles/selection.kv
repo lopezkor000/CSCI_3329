@@ -1,0 +1,25 @@
+#:kivy 2.2.1
+
+<SelectionScreen>:
+	BoxLayout:
+		orientation: 'vertical'
+		canvas:
+			Color:
+				rgba: 1, .5, .5, .75
+			Rectangle:
+				pos: 0, 0
+				size: root.width, root.height
+		Button:
+			size_hint: 0.15, 0.10 * 2
+			text: 'back'
+			# on_press: print('worked!')
+			# on_release: print('let go')
+			# on_state:
+			#     print("current state - {} ".format(self.state))
+			backround_color: 1, 1, 0, 1
+			color: 1, 1, 0, 1
+			on_press:
+				root.manager.transition.direction = 'right'
+				root.manager.current = 'Menu'
+		Label:
+			text: 'something'
