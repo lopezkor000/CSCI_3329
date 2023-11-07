@@ -11,4 +11,4 @@ from selection import Selection
 
 class Couple(Selection):
     def __init__(self):
-        super().__init__(2)
+        super().__init__(2) # is this correct?
