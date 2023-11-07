@@ -1,4 +1,4 @@
-#!C:\Users\Koriel Lopez\VS_Projects\project_code\CSCI_3329\.venv\Scripts\python.exe
+#!C:\Users\Koriel Lopez\Projects\VS_Projects\project_code\CSCI_3329\.venv\Scripts\python.exe
 
 # Copyright: This module has been placed in the public domain.
 
