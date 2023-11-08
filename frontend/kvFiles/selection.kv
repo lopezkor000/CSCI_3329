@@ -3,15 +3,10 @@
 <SelectionScreen>:
 	BoxLayout:
 		orientation: 'vertical'
-		canvas:
-			Color:
-				rgba: 1, .5, .5, .75
-			Rectangle:
-				pos: 0, 0
-				size: root.width, root.height
 		Button:
-			size_hint: 0.15, 0.10 * 2
+			size_hint: 0.15, 0.10 * 4
 			text: 'back'
+			font_size: int((root.height + root.width)*0.02)
 			# on_press: print('worked!')
 			# on_release: print('let go')
 			# on_state:
@@ -21,5 +16,12 @@
 			on_press:
 				root.manager.transition.direction = 'right'
 				root.manager.current = 'Menu'
-		Label:
-			text: 'something'
+		Button:
+			text: 'solo'
+			font_size: int((root.height + root.width)*0.03)
+		Button:
+			text: 'couple'
+			font_size: int((root.height + root.width)*0.03)
+		Button:
+			text: 'group'
+			font_size: int((root.height + root.width)*0.03)
