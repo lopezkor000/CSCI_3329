@@ -13,6 +13,9 @@
 		Button:
 			text: 'view'
 			font_size: int((root.height + root.width)*0.03)
+			on_press:
+				root.manager.transition.direction = 'left'
+				root.manager.current = 'viewLocs'
 		Button:
 			text: 'edit'
 			font_size: int((root.height + root.width)*0.03)
