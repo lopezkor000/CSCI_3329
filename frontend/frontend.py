@@ -3,7 +3,7 @@ from kivy.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
 
 from frontend.selection import SelectionScreen
-Builder.load_file('frontend/kvFiles/selection.kv')
+Builder.load_file('frontend/kvFiles/selection.kv') # testing if this disappears
 
 from frontend.mainMenu import MainMenu
 Builder.load_file('frontend/kvFiles/mainMenu.kv')
