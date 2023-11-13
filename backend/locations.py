@@ -15,3 +15,34 @@ Locations Class
     - label location
         [includes location in category dict, labeling it]
 """
+class Locations:
+    def __init__(self):
+        self.locations_list = []
+        self.categories_dict = {}
+
+    def add_location(self, location):
+        self.locations_list.append(location)
+        print(f"Location {location} added to the list.")
+
+    def remove_location(self, location):
+        if location in self.locations_list:
+            self.locations_list.remove(location)
+            print(f"Location {location} removed from the list.")
+        else:
+            print(f"Location {location} not found.")
+
+    def label_location(self, location, category):
+        if location in self.locations_list:
+            if category in self.categories_dict:
+                self.categories_dict[category].append(location)
+            else:
+                self.categories_dict[category] = [location]
+            print(f"Location {location} labeled under category {category}.")
+        else:
+            print(f"Location {location} not found.")
+
+# Usage:
+# locations_instance = Locations()
+# locations_instance.add_location("Location A")
+# locations_instance.label_location("Location A", "Category X")
+# locations_instance.remove_location("Location A")
