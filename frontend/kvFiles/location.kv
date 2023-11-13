@@ -6,12 +6,19 @@
 		Button:
 			size_hint: 0.15, 0.10 * 4
 			text: 'back'
+			font_size: int((root.height + root.width)*0.02)
 			on_press:
 				root.manager.transition.direction = 'right'
 				root.manager.current = 'Menu'
 		Button:
 			text: 'view'
+			font_size: int((root.height + root.width)*0.03)
+			on_press:
+				root.manager.transition.direction = 'left'
+				root.manager.current = 'viewLocs'
 		Button:
 			text: 'edit'
+			font_size: int((root.height + root.width)*0.03)
 		Button:
 			text: 'categories'
+			font_size: int((root.height + root.width)*0.03)
