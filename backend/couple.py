@@ -10,4 +10,5 @@ Couple Class
 from selection import Selection
 
 class Couple(Selection):
-    pass
+    def __init__(self):
+        super().__init__(2) # is this correct?

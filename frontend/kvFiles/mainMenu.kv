@@ -3,17 +3,21 @@
 <MainMenu>:
 	BoxLayout:
 		orientation: 'vertical'
-		Button:
-			text: 'Next'
-			size_hint: 0.15, 0.10 * 3
-			pos_hint: {'x': 0, 'y': 1} # x, center_x, right
-			on_press:
-				root.manager.transition.direction = 'left'
-				root.on_click()
+		Label:
+			text: '~ Dinner Date ~'
+			font_size: int((root.height + root.width)*0.05)
+			bold: True
+			underline: True
+			halign: 'center'
 		Button:
 			text: 'Selection'
+			font_size: int((root.height + root.width)*0.03)
+			on_press:
+				root.manager.transition.direction = 'left'
+				root.manager.current = 'SelectScreen'
 		Button:
 			text: 'Locations'
+			font_size: int((root.height + root.width)*0.03)
 			on_press:
 				root.manager.transition.direction = 'left'
 				root.manager.current = 'LocationScreen'

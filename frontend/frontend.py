@@ -8,8 +8,9 @@ Builder.load_file('frontend/kvFiles/selection.kv')
 from frontend.mainMenu import MainMenu
 Builder.load_file('frontend/kvFiles/mainMenu.kv')
 
-from frontend.locationScreen import LocationScreen
+from frontend.locationScreen import LocationScreen, View
 Builder.load_file('frontend/kvFiles/location.kv')
+Builder.load_file('frontend/kvFiles/viewLocs.kv')
 
 
 class Main(App):
@@ -18,6 +19,7 @@ class Main(App):
         sm.add_widget(MainMenu(name='Menu'))
         sm.add_widget(SelectionScreen(name='SelectScreen'))
         sm.add_widget(LocationScreen(name='LocationScreen'))
+        sm.add_widget(View(name='viewLocs'))
 
         return sm
 

@@ -40,7 +40,6 @@ class Locations:
             print(f"Location {location} labeled under category {category}.")
         else:
             print(f"Location {location} not found.")
-    
 
 # Usage:
 # locations_instance = Locations()

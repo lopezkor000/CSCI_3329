@@ -9,4 +9,5 @@ Solo Class
 from selection import Selection
 
 class Solo(Selection):
-   pass
+    def __init__(self):
+        super().__init__(1)
