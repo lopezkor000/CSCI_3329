@@ -1,0 +1,17 @@
+#:kivy 2.2.1
+
+<Add>:
+	BoxLayout:
+		orientation: 'vertical'
+		Button:
+			size_hint: 0.15, 0.10 * 4
+			text: 'back'
+			font_size: int((root.height + root.width)*0.02)
+			on_press:
+				root.manager.transition.direction = 'right'
+				root.manager.current = 'Menu'
+		Button:
+			text: 'Add'
+			on_press:
+				root.addLoc()
+		

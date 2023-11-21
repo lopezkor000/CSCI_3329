@@ -52,9 +52,3 @@ class Selection:
             self.running_function(num_calls - 1)
         else:
             print("End of recursive calls.")
-
-# Usage:
-# num_people = int(input("Enter the number of people choosing: "))
-# selection_instance = Selection(num_people)
-# selection_instance.select_mode()
-# selection_instance.running_function(num_people)
