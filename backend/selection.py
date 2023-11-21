@@ -17,8 +17,11 @@ Selection Class
         [recursively calls itself for as many people that are participating]
 """
 
+import random 
+
 class Selection:
-    def __init__(self, num_people):
+    def __init__(self, num_people): # of people choosing {passed in}
+
         self.num_people = num_people
         self.locations = []
 
@@ -30,14 +33,15 @@ class Selection:
         else:
             print("Invalid choice.")
 
-    def total_random(self, random):
+    def total_random(self):
         if self.locations:
             random_location = random.choice(self.locations)
             print(f"The totally random location is: {random_location}")
         else:
             print("No locations available.")
 
-    def category_random(self, random, label):
+    def category_random(self, random):
+        label = input("Enter category label: ")
         category_locations = [location for location in self.locations if location.label == label] 
         if category_locations:
             random_location = random.choice(category_locations)
