@@ -17,34 +17,39 @@ Selection Class
         [recursively calls itself for as many people that are participating]
 """
 
-import random 
+import random
+from locations import Locations  # Import the updated Locations class
 
 class Selection:
-    def __init__(self, num_people): # of people choosing {passed in}
+    def __init__(self, numPeople):
+        self.numPeople = numPeople
+        self.locationsManager = Locations()  # Locations class to manage CSV data
+        self.locations = self.locationsManager.locationsList  # Dictionaries from locations.csv
 
-        self.num_people = num_people
-        self.locations = []
-
-    def select_mode(self, choice):
+    def selectMode(self, choice):
         if choice == "totally random":
-            self.total_random()
+            self.totalRandom()
         elif choice == "category random":
-            self.category_random()
+            self.categoryRandom()
         else:
             print("Invalid choice.")
 
-    def total_random(self):
+    def totalRandom(self):
         if self.locations:
-            random_location = random.choice(self.locations)
-            print(f"The totally random location is: {random_location}")
+            randomLocation = random.choice(self.locations)
+            print(f"The totally random location is: {randomLocation['Name']}")
         else:
             print("No locations available.")
 
-    def category_random(self, random):
-        label = input("Enter category label: ")
-        category_locations = [location for location in self.locations if location.label == label] 
-        if category_locations:
-            random_location = random.choice(category_locations)
-            print(f"The randomly chosen location from the category is: {random_location}")
+    def categoryRandom(self):
+        foodType = input("Enter food type: ")  # category refers to 'FoodType'
+        categoryLocations = [location for location in self.locations if location['FoodType'] == foodType]
+        if categoryLocations:
+            randomLocation = random.choice(categoryLocations)
+            print(f"The randomly chosen location from the food type {foodType} is: {randomLocation['Name']}")
         else:
-            print(f"No locations available for the label {label}.")
+            print(f"No locations available for the food type {foodType}.")
+
+# Usage
+selection = Selection(numPeople=2)
+selection.selectMode("totally random")
