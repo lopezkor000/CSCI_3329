@@ -2,6 +2,8 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
 
+from backend.locations import Locations
+
 from frontend.selection import SelectionScreen
 Builder.load_file('frontend/kvFiles/selection.kv')
 

@@ -48,9 +48,3 @@ class Selection:
             print(f"The randomly chosen location from the category is: {random_location}")
         else:
             print(f"No locations available for the label {label}.")
-
-    def running_function(self, num_calls):
-        if num_calls > 0:
-            self.running_function(num_calls - 1)
-        else:
-            print("End of recursive calls.")

@@ -30,7 +30,6 @@ class ViewLayout(GridLayout):
 
 class Add(Screen):
 	locs = Locations()
-
 	def addLoc(self):
 		for i in range(3):
 			self.locs.add_location(str(i))
