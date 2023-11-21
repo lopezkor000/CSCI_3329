@@ -40,9 +40,3 @@ class Locations:
             print(f"Location {location} labeled under category {category}.")
         else:
             print(f"Location {location} not found.")
-
-# Usage:
-# locations_instance = Locations()
-# locations_instance.add_location("Location A")
-# locations_instance.label_location("Location A", "Category X")
-# locations_instance.remove_location("Location A")
