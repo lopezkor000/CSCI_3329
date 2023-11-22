@@ -1,43 +1,58 @@
-"""
-Locations Class
-
-    constructor:
-    - list of locations (empty)
-    - dictionary of categories (empty)
-    
-    functions:
-    - add location
-        [adds location to list of locations]
-
-    - remove location
-        [removes location in list of locations]
-
-    - label location
-        [includes location in category dict, labeling it]
-"""
+import csv
 
 class Locations:
     def __init__(self):
-        self.locations_list = []
-        self.categories_dict = {}
+        self.csvFile = 'locations.csv'
+        self.loadLocations()
 
-    def add_location(self, location:str):
-        self.locations_list.append(location)
-        print(f"Location {location} added to the list.")
+    def loadLocations(self):
+        """
+        Makes sure the CSV file exists, otherwise makes one
+        """
 
-    def remove_location(self, location:str):
-        if location in self.locations_list:
-            self.locations_list.remove(location)
-            print(f"Location {location} removed from the list.")
-        else:
-            print(f"Location {location} not found.")
+        try:
+            with open(self.csvFile, mode='r') as file:
+                pass
+        except FileNotFoundError:
+            self.CreateCSV()
 
-    def label_location(self, location:str, category:str):
-        if location in self.locations_list:
-            if category in self.categories_dict:
-                self.categories_dict[category].append(location)
-            else:
-                self.categories_dict[category] = [location]
-            print(f"Location {location} labeled under category {category}.")
-        else:
-            print(f"Location {location} not found.")
+    def addLocation(self, name, *args):
+        """
+        Appends a new place to eat and adds appropriate categories
+        """
+
+        newLocation = [x for x in args]
+        newLocation.insert(0, name)
+        with open(self.csvFile, mode='a', newline='') as file:
+            csv.writer(file).writerow(newLocation)
+    
+    def removeLocation(self, name):
+        """
+        Looks for first instance of location then recreates CSV without it
+        """
+        
+        locs = self.listedLocs()
+        for i, loc in enumerate(locs):
+            if loc[0] == name:
+                locs.pop(i)
+                break
+        self.CreateCSV(locs)
+
+    def CreateCSV(self, locs=None):
+        """
+        Creates new empty CSV with headers to track our places to eat
+        """
+
+        with open(self.csvFile, mode='w', newline='') as file:
+            writer = csv.writer(file)
+            if locs != None:
+                for loc in locs:
+                    writer.writerow(loc)
+    
+    def listedLocs(self) -> list:
+        """
+        Returns listed rows of locations in CSV
+        """
+
+        with open(self.csvFile, mode='r') as file:
+            return [place for place in csv.reader(file)]
