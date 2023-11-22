@@ -1,6 +1,7 @@
 from kivy.uix.screenmanager import Screen
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
+from kivy.properties import ObjectProperty
 import math
 
 from backend.locations import Locations
@@ -30,6 +31,5 @@ class ViewLayout(GridLayout):
 
 class Add(Screen):
 	locs = Locations()
-	def addLoc(self):
-		for i in range(3):
-			self.locs.add_location(str(i))
+	remove = ObjectProperty()
+	add = ObjectProperty()

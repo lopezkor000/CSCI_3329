@@ -4,7 +4,7 @@
 	BoxLayout:
 		orientation: 'vertical'
 		Button:
-			size_hint: 0.15, 0.10 * 4
+			size_hint: 0.15, 0.10 * 3
 			text: 'back'
 			font_size: int((root.height + root.width)*0.02)
 			on_press:
@@ -22,6 +22,3 @@
 			on_press:
 				root.manager.transition.direction = 'left'
 				root.manager.current = 'add_locs'
-		Button:
-			text: 'categories'
-			font_size: int((root.height + root.width)*0.03)
