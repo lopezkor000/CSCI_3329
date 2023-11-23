@@ -1,5 +1,7 @@
 #:kivy 2.2.1
 
+#:import view frontend.locationScreen.View
+
 <LocationScreen>:
 	BoxLayout:
 		orientation: 'vertical'
@@ -8,6 +10,7 @@
 			text: 'back'
 			font_size: int((root.height + root.width)*0.02)
 			on_press:
+				view()
 				root.manager.transition.direction = 'right'
 				root.manager.current = 'Menu'
 		Button:

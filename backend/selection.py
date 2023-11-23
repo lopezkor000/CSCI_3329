@@ -1,5 +1,5 @@
 import random
-from locations import Locations
+from backend.locations import Locations
 
 class Selection:
     def __init__(self, numPeople):

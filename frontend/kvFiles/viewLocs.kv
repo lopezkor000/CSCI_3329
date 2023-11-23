@@ -1,6 +1,7 @@
 #:kivy 2.2.1
 
 <View>:
+    on_pre_enter: root.refresh()
     BoxLayout:
         orientation: 'vertical'
         Button:
@@ -10,7 +11,6 @@
             on_press:
                 root.manager.transition.direction = 'right'
                 root.manager.current = 'LocationScreen'
-        ViewLayout:
-            # locs: self.locs
-            on_kv_post:
-                self.test()
+        # ViewLayout:
+        #     on_kv_post:
+        #         self.update()

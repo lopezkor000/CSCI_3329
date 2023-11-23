@@ -13,21 +13,24 @@ class LocationScreen(Screen):
 class View(Screen):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
-		# self.locsList = TestLocations().someList
-		self.add_widget(ViewLayout())
+		self.view = ViewLayout()
+		self.add_widget(self.view)
 	
-	def viewLocs(self):
-		pass
+	def refresh(self):
+		self.view.update()
 
 class ViewLayout(GridLayout):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
-		self.items = 10
+		self.locs = Locations()
+		self.items = len(self.locs.listedLocs())
 		self.cols = round(math.sqrt(self.items))
 
-	def test(self):
-		for i in range(self.items):
-			self.add_widget(Label(text=str(i)))
+	def update(self):
+		self.clear_widgets()
+		for i in self.locs.listedLocs():
+			self.add_widget(Label(text=i[0],
+						 		  font_size=int((self.height + self.width)*0.2),))
 
 class Add(Screen):
 	locs = Locations()
