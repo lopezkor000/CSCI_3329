@@ -1,0 +1,41 @@
+#:kivy 2.2.1
+
+<Add>:
+	remove: text_remove
+	BoxLayout:
+		orientation: 'vertical'
+		Button:
+			size_hint: 0.15, 0.10 * 4
+			text: 'back'
+			font_size: int((root.height + root.width)*0.02)
+			on_press:
+				root.manager.transition.direction = 'right'
+				root.manager.current = 'LocationScreen'
+		BoxLayout:
+			orientation: 'horizontal'
+			Button:
+				size_hint: 0.33, 1
+				text: 'Add'
+				font_size: int((root.height + root.width)*0.02)
+				on_press: root.locs.addLocation(text_add.text)
+			TextInput:
+				id: text_add
+				font_size: int((root.height + root.width)*0.02)
+				hint_text: 'enter location'
+				multiline: False
+				halign: 'center'
+				padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+		BoxLayout:
+			orientation: 'horizontal'
+			Button:
+				size_hint: 0.33, 1
+				text: 'remove'
+				font_size: int((root.height + root.width)*0.02)
+				on_press: root.locs.removeLocation(text_remove.text)
+			TextInput:
+				id: text_remove
+				font_size: int((root.height + root.width)*0.02)
+				hint_text: 'enter location'
+				multiline: False
+				halign: 'center'
+				padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]

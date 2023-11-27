@@ -6,7 +6,8 @@ Solo Class
     - # of people = 1
     - call selection super()
 """
-from selection import Selection
+
+from backend.selection import Selection
 
 class Solo(Selection):
     def __init__(self):

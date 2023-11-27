@@ -1,0 +1,26 @@
+#:kivy 2.2.1
+
+#:import MultiLayout frontend.multiSelect.MultiLayout
+
+<MultiSelect>:
+    multi: multi
+    on_pre_enter: multi.countUsers()
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            size_hint: 0.15, 0.10 * 3
+            text: 'back'
+            font_size: int((root.height + root.width)*0.02)
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'SelectScreen'
+        # BoxLayout:
+        #     orientation: 'horizontal'
+        #     Button:
+        #         text: 'add'
+        #         on_press: multi.add()
+        #     Button:
+        #         text: 'remove'
+        #         on_press: multi.remove()
+        MultiLayout:
+            id: multi

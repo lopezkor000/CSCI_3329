@@ -1,13 +1,16 @@
 #:kivy 2.2.1
 
+#:import view frontend.locationScreen.View
+
 <LocationScreen>:
 	BoxLayout:
 		orientation: 'vertical'
 		Button:
-			size_hint: 0.15, 0.10 * 4
+			size_hint: 0.15, 0.10 * 3
 			text: 'back'
 			font_size: int((root.height + root.width)*0.02)
 			on_press:
+				view()
 				root.manager.transition.direction = 'right'
 				root.manager.current = 'Menu'
 		Button:
@@ -19,6 +22,6 @@
 		Button:
 			text: 'edit'
 			font_size: int((root.height + root.width)*0.03)
-		Button:
-			text: 'categories'
-			font_size: int((root.height + root.width)*0.03)
+			on_press:
+				root.manager.transition.direction = 'left'
+				root.manager.current = 'add_locs'

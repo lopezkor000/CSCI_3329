@@ -88,3 +88,7 @@ kivy/core/clipboard/_clipboard_sdl2.c
 
 # Trash
 frontend/__pycache__
+backend/__pycache__
+
+# test files
+test

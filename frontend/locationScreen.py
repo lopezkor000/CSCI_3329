@@ -1,23 +1,40 @@
 from kivy.uix.screenmanager import Screen
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
+from kivy.properties import ObjectProperty
 import math
 
-class LocationScreen(Screen):
-    pass
+from backend.locations import Locations
 
-class View(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        # self.locsList = TestLocations().someList
-        self.add_widget(ViewLayout())
+
+class LocationScreen(Screen):
+	pass
+
 
 class ViewLayout(GridLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.items = 10
-        self.cols = round(math.sqrt(self.items))
+	def __init__(self, **kwargs):
+		super().__init__(**kwargs)
+		self.locs = Locations()
+		self.items = len(self.locs.listedLocs())
+		self.cols = round(math.sqrt(self.items))
 
-    def test(self):
-        for i in range(self.items):
-            self.add_widget(Label(text=str(i)))
+	def update(self):
+		self.clear_widgets()
+		self.items = len(self.locs.listedLocs())
+		self.cols = round(math.sqrt(self.items))
+		for i in self.locs.listedLocs():
+			self.add_widget(Label(text=i[0],
+						 		  font_size=int((self.height + self.width)*0.02),))
+
+
+class View(Screen):
+	viewLayout = ViewLayout()
+	def __init__(self, **kwargs):
+		super().__init__(**kwargs)
+		# self.add_widget(self.viewLayout)
+
+
+class Add(Screen):
+	locs = Locations()
+	remove = ObjectProperty()
+	add = ObjectProperty()
