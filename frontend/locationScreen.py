@@ -10,14 +10,6 @@ from backend.locations import Locations
 class LocationScreen(Screen):
 	pass
 
-class View(Screen):
-	def __init__(self, **kwargs):
-		super().__init__(**kwargs)
-		self.view = ViewLayout()
-		self.add_widget(self.view)
-	
-	def refresh(self):
-		self.view.update()
 
 class ViewLayout(GridLayout):
 	def __init__(self, **kwargs):
@@ -28,9 +20,19 @@ class ViewLayout(GridLayout):
 
 	def update(self):
 		self.clear_widgets()
+		self.items = len(self.locs.listedLocs())
+		self.cols = round(math.sqrt(self.items))
 		for i in self.locs.listedLocs():
 			self.add_widget(Label(text=i[0],
-						 		  font_size=int((self.height + self.width)*0.2),))
+						 		  font_size=int((self.height + self.width)*0.02),))
+
+
+class View(Screen):
+	viewLayout = ViewLayout()
+	def __init__(self, **kwargs):
+		super().__init__(**kwargs)
+		# self.add_widget(self.viewLayout)
+
 
 class Add(Screen):
 	locs = Locations()

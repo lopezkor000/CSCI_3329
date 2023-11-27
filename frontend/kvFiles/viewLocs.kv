@@ -1,16 +1,16 @@
 #:kivy 2.2.1
 
 <View>:
-    on_pre_enter: root.refresh()
+    viewLayout: viewLayout
+    on_pre_enter: viewLayout.update()
     BoxLayout:
         orientation: 'vertical'
         Button:
-            size_hint: 0.15, 0.10
+            size_hint: 0.15, 0.10 * 2
             text: 'back'
             font_size: int((root.height + root.width)*0.02)
             on_press:
                 root.manager.transition.direction = 'right'
                 root.manager.current = 'LocationScreen'
-        # ViewLayout:
-        #     on_kv_post:
-        #         self.update()
+        ViewLayout:
+            id: viewLayout
