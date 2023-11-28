@@ -24,7 +24,7 @@ class ViewLayout(GridLayout):
 		self.cols = round(math.sqrt(self.items))
 		for i in self.locs.listedLocs():
 			self.add_widget(Label(text=i[0],
-						 		  font_size=int((self.height + self.width)*0.02),))
+					      font_size=int((self.height + self.width)*0.02),))
 
 
 class View(Screen):
